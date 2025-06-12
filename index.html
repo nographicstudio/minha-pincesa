@@ -41,8 +41,23 @@
       50% { border-color: white }
     }
 
-    .buttons {
+    .question {
+      font-size: 2.5em;
       margin-top: 30px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 4.2s;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .buttons {
+      margin-top: 40px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 6.5s;
     }
 
     button {
@@ -89,7 +104,7 @@
   <div class="hearts" id="hearts"></div>
   <div class="container">
     <div class="typewriter">Tenho algo muito importante pra te perguntar...</div>
-    <div class="typewriter">Quer namorar comigo??</div>
+    <div class="question">Quer namorar comigo?</div>
     <div class="buttons">
       <button onclick="alert('Você me fez a pessoa mais feliz do mundo! ❤️')">Sim</button>
       <button onclick="alert('Sabia que você diria isso! 💖')">Claro que sim</button>
