@@ -98,25 +98,30 @@
 
     .heart {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background: url('https://i.imgur.com/Qp3ES7H.png') no-repeat center/contain;
-      animation: float 5s infinite;
+      font-size: 24px;
+      animation: float 5s linear infinite;
+      color: #ff4d6d;
     }
 
     @keyframes float {
-      0% { transform: translateY(100vh); opacity: 1; }
-      100% { transform: translateY(-10vh); opacity: 0; }
+      0% {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
   <div class="hearts" id="hearts"></div>
   <div class="container">
-    <div class="typewriter">Preciso te perguntar algo importante....</div>
+    <div class="typewriter">Tenho algo muito importante pra te perguntar...</div>
 
     <div class="letter">
-      <p>Meu amor <strong>,</p>
+      <p>Meu amor <strong>Heloisa</strong>,</p>
       <p>
         Desde o dia em que te conheci, meu mundo se tornou mais colorido e feliz. Cada momento ao seu lado é especial e me faz ter a certeza de que você é a pessoa certa para mim.
       </p>
@@ -129,6 +134,7 @@
     </div>
 
     <div class="question">Quer namorar comigo?</div>
+
     <div class="buttons">
       <button onclick="alert('Você me fez a pessoa mais feliz do mundo! ❤️')">Sim</button>
       <button onclick="alert('Sabia que você diria isso! 💖')">Claro que sim</button>
@@ -140,9 +146,10 @@
     for (let i = 0; i < 30; i++) {
       const heart = document.createElement('div');
       heart.classList.add('heart');
+      heart.textContent = '❤️';
       heart.style.left = `${Math.random() * 100}vw`;
       heart.style.animationDelay = `${Math.random() * 5}s`;
-      heart.style.transform = `scale(${Math.random() + 0.5})`;
+      heart.style.fontSize = `${Math.random() * 20 + 20}px`;
       heartsContainer.appendChild(heart);
     }
   </script>
