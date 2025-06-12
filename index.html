@@ -98,4 +98,29 @@
       0% { transform: translateY(100vh); opacity: 1; }
       100% { transform: translateY(-10vh); opacity: 0; }
     }
-  </sty
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+  <div class="container">
+    <div class="typewriter">Tenho algo muito importante pra te perguntar...</div>
+    <div class="question">Quer namorar comigo?</div>
+    <div class="buttons">
+      <button onclick="alert('Você me fez a pessoa mais feliz do mundo! ❤️')">Sim</button>
+      <button onclick="alert('Sabia que você diria isso! 💖')">Claro que sim</button>
+    </div>
+  </div>
+
+  <script>
+    const heartsContainer = document.getElementById('hearts');
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDelay = `${Math.random() * 5}s`;
+      heart.style.transform = `scale(${Math.random() + 0.5})`;
+      heartsContainer.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
