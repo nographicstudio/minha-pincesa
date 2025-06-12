@@ -118,7 +118,7 @@
 <body>
   <div class="hearts" id="hearts"></div>
   <div class="container">
-    <div class="typewriter">Preciso te perguntar algo importante... </div>
+    <div class="typewriter">Preciso te perguntar algo importante...</div>
 
     <div class="letter">
       <p>Meu amor <strong>Heloisa</strong>,</p>
@@ -136,8 +136,12 @@
     <div class="question">Quer namorar comigo?</div>
 
     <div class="buttons">
-      <button onclick="alert('Você me fez a pessoa mais feliz do mundo! ❤️')">Sim</button>
-      <button onclick="alert('Sabia que você diria isso! 💖')">Claro que sim</button>
+      <button onclick="responder()">Sim</button>
+      <button onclick="responder()">Claro que sim</button>
+    </div>
+
+    <div id="respostaFinal" style="display:none; margin-top: 40px; font-size: 1.8em; color: #fff; animation: fadeIn 2s ease forwards;">
+      <!-- Mensagem de amor aparece aqui -->
     </div>
   </div>
 
@@ -151,6 +155,16 @@
       heart.style.animationDelay = `${Math.random() * 5}s`;
       heart.style.fontSize = `${Math.random() * 20 + 20}px`;
       heartsContainer.appendChild(heart);
+    }
+
+    function responder() {
+      document.querySelector('.buttons').style.display = 'none';
+      const mensagem = document.getElementById('respostaFinal');
+      mensagem.innerHTML = `
+        Você me fez a pessoa mais feliz do mundo! ❤️<br><br>
+        Mal posso esperar para viver tudo ao seu lado, <strong>Heloisa</strong>. 🌹
+      `;
+      mensagem.style.display = 'block';
     }
   </script>
 </body>
