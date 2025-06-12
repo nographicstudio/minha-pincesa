@@ -5,42 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Perguntinha??</title>
   <style>
-    :root {
-      --rosa-claro: #ffdde1;
-      --rosa-medio: #ee9ca7;
-      --rosa-escuro: #ff4d6d;
-      --branco: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
       padding: 0;
-    }
-
-    body {
+      background: linear-gradient(#ffdde1, #ee9ca7);
       font-family: 'Courier New', Courier, monospace;
-      background: linear-gradient(var(--rosa-claro), var(--rosa-medio));
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      height: 100vh;
       overflow: hidden;
-      padding: 20px;
     }
 
     .container {
       text-align: center;
-      color: var(--branco);
-      max-width: 500px;
-      width: 100%;
+      color: #fff;
+      padding: 20px;
+      max-width: 700px;
     }
 
     .typewriter {
-      font-size: 1.5em;
+      font-size: 2em;
       white-space: nowrap;
       overflow: hidden;
-      border-right: .15em solid var(--branco);
+      border-right: .15em solid #fff;
       animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
     }
 
@@ -51,12 +39,12 @@
 
     @keyframes blink-caret {
       from, to { border-color: transparent }
-      50% { border-color: var(--branco) }
+      50% { border-color: white }
     }
 
     .letter {
-      font-size: 1.1em;
-      margin-top: 25px;
+      font-size: 1.2em;
+      margin-top: 30px;
       opacity: 0;
       animation: fadeIn 2s ease forwards;
       animation-delay: 4.2s;
@@ -64,41 +52,38 @@
     }
 
     .question {
-      font-size: 1.8em;
-      margin-top: 30px;
+      font-size: 2.5em;
+      margin-top: 40px;
       opacity: 0;
       animation: fadeIn 2s ease forwards;
       animation-delay: 7s;
     }
 
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
     .buttons {
-      margin-top: 25px;
+      margin-top: 30px;
       opacity: 0;
       animation: fadeIn 2s ease forwards;
       animation-delay: 9s;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
     }
 
     button {
-      background-color: var(--branco);
-      color: var(--rosa-medio);
+      background-color: #fff;
+      color: #ee9ca7;
       border: none;
-      padding: 14px 20px;
+      padding: 15px 30px;
+      margin: 10px;
       border-radius: 25px;
-      font-size: 1.1em;
+      font-size: 1em;
       cursor: pointer;
-      transition: transform 0.3s, background-color 0.3s;
+      transition: transform 0.3s;
     }
 
     button:hover {
-      transform: scale(1.05);
-      background-color: #ffe4ec;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
+      transform: scale(1.1);
     }
 
     .hearts {
@@ -115,7 +100,7 @@
       position: absolute;
       font-size: 24px;
       animation: float 5s linear infinite;
-      color: var(--rosa-escuro);
+      color: #ff4d6d;
     }
 
     @keyframes float {
@@ -126,37 +111,6 @@
       100% {
         transform: translateY(-10vh);
         opacity: 0;
-      }
-    }
-
-    #respostaFinal {
-      display: none;
-      margin-top: 30px;
-      font-size: 1.5em;
-      color: var(--branco);
-      animation: fadeIn 2s ease forwards;
-    }
-
-    @media (max-width: 480px) {
-      .typewriter {
-        font-size: 1.2em;
-      }
-
-      .letter {
-        font-size: 1em;
-      }
-
-      .question {
-        font-size: 1.6em;
-      }
-
-      button {
-        font-size: 1em;
-        padding: 12px;
-      }
-
-      #respostaFinal {
-        font-size: 1.3em;
       }
     }
   </style>
@@ -186,7 +140,7 @@
       <button onclick="responder()">Claro que sim</button>
     </div>
 
-    <div id="respostaFinal">
+    <div id="respostaFinal" style="display:none; margin-top: 40px; font-size: 1.8em; color: #fff; animation: fadeIn 2s ease forwards;">
       <!-- Mensagem de amor aparece aqui -->
     </div>
   </div>
