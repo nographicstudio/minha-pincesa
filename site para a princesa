@@ -1,90 +1,110 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Para Minha Princesa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quer namorar comigo?</title>
   <style>
     body {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      font-family: 'Segoe UI', sans-serif;
-      background: #fff8f0;
-      color: #4a3f35;
-      line-height: 1.8;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    header h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3.2em;
       margin: 0;
-      color: #b35d5d;
+      padding: 0;
+      background: linear-gradient(#ffdde1, #ee9ca7);
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
-    .letter {
-      padding: 30px;
-      border: 2px solid #e0cba8;
-      border-radius: 16px;
-      background: #fffdf8;
-      box-shadow: 4px 4px 12px rgba(0,0,0,0.08);
-      text-align: justify;
-      font-size: 1.15em;
-    }
-    .letter p {
-      margin-bottom: 1.5em;
-      text-indent: 2em;
-    }
-    .iframe-wrapper {
+
+    .container {
       text-align: center;
-      margin: 40px 0;
+      color: #fff;
+      padding: 20px;
     }
-    .iframe-wrapper iframe {
-      border-radius: 12px;
+
+    .typewriter {
+      font-size: 2em;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: .15em solid #fff;
+      animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: white }
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    button {
+      background-color: #fff;
+      color: #ee9ca7;
+      border: none;
+      padding: 15px 30px;
+      margin: 10px;
+      border-radius: 25px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      max-width: 400px;
-      height: 100px;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
     }
-    .kiss {
-      display: block;
-      text-align: center;
-      margin: 40px 0;
-      font-size: 2.5em;
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://i.imgur.com/Qp3ES7H.png') no-repeat center/contain;
+      animation: float 5s infinite;
     }
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #7d6b5a;
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
     }
   </style>
-  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Minha Princesa</h1>
-  </header>
-
-  <div class="letter">
-    <p>Cada manhã que desperto, penso nos seus beijos doces que dão sabor à minha vida. Seus carinhos suaves são como pincéis que pintam cores vibrantes em minha alma.</p>
-
-    <p>Como artista, busco sempre a perfeição em cada traço, mas você... você já é a obra-prima perfeita que Deus criou. Suas mãos que me acariciam são as mesmas que inspiram minhas criações digitais e manuais.</p>
-
-    <p>Cada pixel que movimento, cada tinta que misturo, cada linha que desenho carrega um pouco do amor que sinto por você. Você não é apenas minha musa, você é minha razão de criar, de sonhar, de existir.</p>
+  <div class="hearts" id="hearts"></div>
+  <div class="container">
+    <div class="typewriter">Tenho algo muito importante pra te perguntar...</div>
+    <div class="buttons">
+      <button onclick="alert('Você me fez a pessoa mais feliz do mundo! ❤️')">Sim</button>
+      <button onclick="alert('Sabia que você diria isso! 💖')">Claro que sim</button>
+    </div>
   </div>
 
-  <div class="iframe-wrapper">
-    <!-- Embed da música "Morena Avelã" de Leo Foguetes no Spotify -->
-    <iframe src="https://open.spotify.com/embed/track/2KN4k9v9b2JT7mMFrmpQm6?utm_source=generator&theme=0" 
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-      loading="lazy"></iframe>
-  </div>
-
-  <div class="kiss">💋💋💋</div>
-
-  <footer>
-    Feito com amor por seu amorzinho que te ama.
-  </footer>
+  <script>
+    const heartsContainer = document.getElementById('hearts');
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDelay = `${Math.random() * 5}s`;
+      heart.style.transform = `scale(${Math.random() + 0.5})`;
+      heartsContainer.appendChild(heart);
+    }
+  </script>
 </body>
 </html>
