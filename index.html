@@ -5,30 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Perguntinha??</title>
   <style>
-    body {
+    :root {
+      --rosa-claro: #ffdde1;
+      --rosa-medio: #ee9ca7;
+      --rosa-escuro: #ff4d6d;
+      --branco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background: linear-gradient(#ffdde1, #ee9ca7);
+    }
+
+    body {
       font-family: 'Courier New', Courier, monospace;
+      background: linear-gradient(var(--rosa-claro), var(--rosa-medio));
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       overflow: hidden;
+      padding: 20px;
     }
 
     .container {
       text-align: center;
-      color: #fff;
-      padding: 20px;
-      max-width: 700px;
+      color: var(--branco);
+      max-width: 500px;
+      width: 100%;
     }
 
     .typewriter {
-      font-size: 2em;
+      font-size: 1.5em;
       white-space: nowrap;
       overflow: hidden;
-      border-right: .15em solid #fff;
+      border-right: .15em solid var(--branco);
       animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
     }
 
@@ -39,12 +51,12 @@
 
     @keyframes blink-caret {
       from, to { border-color: transparent }
-      50% { border-color: white }
+      50% { border-color: var(--branco) }
     }
 
     .letter {
-      font-size: 1.2em;
-      margin-top: 30px;
+      font-size: 1.1em;
+      margin-top: 25px;
       opacity: 0;
       animation: fadeIn 2s ease forwards;
       animation-delay: 4.2s;
@@ -52,38 +64,41 @@
     }
 
     .question {
-      font-size: 2.5em;
-      margin-top: 40px;
+      font-size: 1.8em;
+      margin-top: 30px;
       opacity: 0;
       animation: fadeIn 2s ease forwards;
       animation-delay: 7s;
     }
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
     .buttons {
-      margin-top: 30px;
+      margin-top: 25px;
       opacity: 0;
       animation: fadeIn 2s ease forwards;
       animation-delay: 9s;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
     button {
-      background-color: #fff;
-      color: #ee9ca7;
+      background-color: var(--branco);
+      color: var(--rosa-medio);
       border: none;
-      padding: 15px 30px;
-      margin: 10px;
+      padding: 14px 20px;
       border-radius: 25px;
-      font-size: 1em;
+      font-size: 1.1em;
       cursor: pointer;
-      transition: transform 0.3s;
+      transition: transform 0.3s, background-color 0.3s;
     }
 
     button:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
+      background-color: #ffe4ec;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
     .hearts {
@@ -100,7 +115,7 @@
       position: absolute;
       font-size: 24px;
       animation: float 5s linear infinite;
-      color: #ff4d6d;
+      color: var(--rosa-escuro);
     }
 
     @keyframes float {
@@ -113,12 +128,43 @@
         opacity: 0;
       }
     }
+
+    #respostaFinal {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.5em;
+      color: var(--branco);
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @media (max-width: 480px) {
+      .typewriter {
+        font-size: 1.2em;
+      }
+
+      .letter {
+        font-size: 1em;
+      }
+
+      .question {
+        font-size: 1.6em;
+      }
+
+      button {
+        font-size: 1em;
+        padding: 12px;
+      }
+
+      #respostaFinal {
+        font-size: 1.3em;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="hearts" id="hearts"></div>
   <div class="container">
-    <div class="typewriter">Preciso te perguntar algo importante.</div>
+    <div class="typewriter">Tenho que te falar uma coisa.</div>
 
     <div class="letter">
       <p>Meu amor <strong>Heloisa</strong>,</p>
@@ -140,7 +186,7 @@
       <button onclick="responder()">Claro que sim</button>
     </div>
 
-    <div id="respostaFinal" style="display:none; margin-top: 40px; font-size: 1.8em; color: #fff; animation: fadeIn 2s ease forwards;">
+    <div id="respostaFinal">
       <!-- Mensagem de amor aparece aqui -->
     </div>
   </div>
