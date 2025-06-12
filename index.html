@@ -116,7 +116,7 @@
     <div class="typewriter">Tenho algo muito importante pra te perguntar...</div>
 
     <div class="letter">
-      <p>Meu amor <strong>Heloisa</strong>,</p>
+      <p>Meu amor <strong>,</p>
       <p>
         Desde o dia em que te conheci, meu mundo se tornou mais colorido e feliz. Cada momento ao seu lado é especial e me faz ter a certeza de que você é a pessoa certa para mim.
       </p>
@@ -128,4 +128,23 @@
       </p>
     </div>
 
-    <div class="question">Quer namorar co
+    <div class="question">Quer namorar comigo?</div>
+    <div class="buttons">
+      <button onclick="alert('Você me fez a pessoa mais feliz do mundo! ❤️')">Sim</button>
+      <button onclick="alert('Sabia que você diria isso! 💖')">Claro que sim</button>
+    </div>
+  </div>
+
+  <script>
+    const heartsContainer = document.getElementById('hearts');
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDelay = `${Math.random() * 5}s`;
+      heart.style.transform = `scale(${Math.random() + 0.5})`;
+      heartsContainer.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
